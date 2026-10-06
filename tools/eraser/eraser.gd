@@ -3,6 +3,9 @@ extends Tool
 
 @export var title: String = "Eraser"
 @export var original_stamp: Texture2D = PlaceholderTexture2D.new()
+
+var cursor_tool = preload("res://tools/eraser/cursor_eraser.png")
+
 var width: float = 2.5
 var hardness: float = 1.0
 var scaling_filter: Image.Interpolation
@@ -23,6 +26,8 @@ func on_pointer_down(_position: Vector2, _canvas: Canvas) -> void:
 
 
 func on_pointer_move(_position: Vector2, _canvas: Canvas) -> void:
+	Input.set_custom_mouse_cursor(cursor_tool, Input.CURSOR_ARROW, Vector2(0,0))
+
 	if filter == null or not _canvas._project or not _has_last:
 		return
 

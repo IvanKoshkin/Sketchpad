@@ -23,7 +23,6 @@ func assign_tool(new_tool: Tool) -> void:
 	tolerance_sldr.value = new_tool.tolerance
 	color_picker.color = EditorState.color
 
-
 func _on_tolerance_changed(value: float) -> void:
 	tolerance = value
 	tolerance_label.text = "%d%%" % (value * 100)
@@ -32,7 +31,6 @@ func _on_tolerance_changed(value: float) -> void:
 
 func _on_tool_settings_changed() -> void:
 	tolerance_sldr.value = tool.tolerance
-
 
 func _on_color_changed(color: Color) -> void:
 	EditorState.color = color
