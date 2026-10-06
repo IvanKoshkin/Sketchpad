@@ -8,6 +8,8 @@ var _start_mouse := Vector2.ZERO
 var _drag_sprite: Sprite2D = null
 var _layer_image: Image = null
 
+var cursor_tool = preload("res://tools/dragger/cursor_dragger.png")
+
 func _init() -> void:
 	name = "Dragger"
 
@@ -38,6 +40,7 @@ func on_pointer_down(_position: Vector2, _canvas: Canvas) -> void:
 	_canvas.dynamic_node.add_child(_drag_sprite)
 
 func on_pointer_move(_position: Vector2, _canvas: Canvas) -> void:
+	Input.set_custom_mouse_cursor(cursor_tool, Input.CURSOR_ARROW, Vector2(0,0))
 	if not dragging or not _drag_sprite:
 		return
 

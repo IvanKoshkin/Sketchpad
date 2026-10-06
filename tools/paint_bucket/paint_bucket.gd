@@ -4,9 +4,13 @@ extends Tool
 @export var title: String = "Paint Bucket"
 @export var tolerance: float
 
+var cursor_tool = preload("res://tools/paint_bucket/cursor_bucket.png")
 
 func _init() -> void:
 	name = "Paint Bucket"
+
+func on_pointer_move(_position: Vector2, _canvas: Canvas) -> void:
+	Input.set_custom_mouse_cursor(cursor_tool, Input.CURSOR_ARROW, Vector2(0,0))
 
 
 func on_pointer_down(_position: Vector2, _canvas: Canvas) -> void:

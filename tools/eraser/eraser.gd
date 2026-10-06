@@ -11,6 +11,7 @@ var filter: Texture2D
 var _last_pos: Vector2
 var _has_last = false
 
+var cursor_tool = preload("res://tools/eraser/cursor_eraser.png")
 
 func _ready() -> void:
 	filter = generate_filter()
@@ -23,6 +24,8 @@ func on_pointer_down(_position: Vector2, _canvas: Canvas) -> void:
 
 
 func on_pointer_move(_position: Vector2, _canvas: Canvas) -> void:
+	Input.set_custom_mouse_cursor(cursor_tool, Input.CURSOR_ARROW, Vector2(0,0))
+	
 	if filter == null or not _canvas._project or not _has_last:
 		return
 
