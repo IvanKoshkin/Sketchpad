@@ -22,8 +22,6 @@ func assign_tool(new_tool: Tool) -> void:
 	self.tool = new_tool
 	tolerance_sldr.value = new_tool.tolerance
 	color_picker.color = EditorState.color
-	
-
 
 func _on_tolerance_changed(value: float) -> void:
 	tolerance = value

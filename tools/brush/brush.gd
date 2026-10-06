@@ -4,6 +4,7 @@ extends Tool
 @export var title: String = "Brush"
 @export var original_stamp: Texture2D = PlaceholderTexture2D.new()
 
+var cursor_tool = preload("res://tools/brush/cursor_brush.png")
 var width: float = 2.5
 var hardness: float = 1.0
 var scaling_filter: Image.Interpolation
@@ -11,8 +12,6 @@ var stamp_tex: Texture2D
 var _stroke_node: Node2D
 var _last_pos: Vector2
 var _has_last = false
-
-var cursor_tool = preload("res://tools/brush/cursor_brush.png")
 
 func _ready() -> void:
 	stamp_tex = generate_stamp()
@@ -27,7 +26,7 @@ func on_pointer_down(_position: Vector2, _canvas: Canvas) -> void:
 
 func on_pointer_move(_position: Vector2, _canvas: Canvas) -> void:
 	Input.set_custom_mouse_cursor(cursor_tool, Input.CURSOR_ARROW, Vector2(0,0))
-	
+
 	if not _stroke_node or not _canvas._project or not _has_last:
 		return
 

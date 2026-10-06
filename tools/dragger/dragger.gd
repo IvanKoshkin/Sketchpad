@@ -3,12 +3,12 @@ extends Tool
 
 @export var title: String = "Dragger"
 
+var cursor_tool = preload("res://tools/dragger/cursor_dragger.png")
+
 var dragging := false
 var _start_mouse := Vector2.ZERO
 var _drag_sprite: Sprite2D = null
 var _layer_image: Image = null
-
-var cursor_tool = preload("res://tools/dragger/cursor_dragger.png")
 
 func _init() -> void:
 	name = "Dragger"
